@@ -44,15 +44,24 @@ class signinViewController : UIViewController {
         return stackView
     }()
     
-    private let textField : UITextField = {
+    private let textFields : [UITextField] = {
         
-        let field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.font = UIFont(name: "Arial", size: 18)
-        field.layer.borderWidth = 1
-        field.layer.cornerRadius = 15
-        field.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        return field
+        var fields:[UITextField] = []
+                      
+        for _ in 1...2 {
+            
+            let field = UITextField()
+            
+            field.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 18)
+            field.layer.borderWidth = 1
+            field.layer.cornerRadius = 15
+            
+//            Add padding
+            field.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
+            fields.append(field)
+            
+        }
+        return fields
     }()
     
     private let signinButton : UIButton = {
@@ -62,7 +71,7 @@ class signinViewController : UIViewController {
         
         button.setTitle("Sign in", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Arial Bold", size: 25)
+        button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 25)
         
         button.backgroundColor = UIColor(red: 0.0/255.0, green: 255.0/255.0, blue: 209.0/255.0, alpha: 1.0)
         button.layer.borderWidth = 1
@@ -111,31 +120,32 @@ class signinViewController : UIViewController {
     fileprivate func setupLayout(){
 //        Heading config
         heading.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        heading.topAnchor.constraint(equalTo: view.topAnchor, constant: 70).isActive = true
+        heading.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
         
 //        VStackview config
         signinStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        signinStackView.centerYAnchor.constraint(equalTo: heading.bottomAnchor, constant: 70).isActive = true
+        signinStackView.topAnchor.constraint(equalTo: heading.bottomAnchor, constant: 20).isActive = true
         signinStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
         
-        
-        let nameField = textField
-        nameField.placeholder = placeholders[0].placeHolder
-        
-        let passwordField = textField
-        passwordField.placeholder = placeholders[1].placeHolder
-        
-        signinStackView.addArrangedSubview(nameField)
-        signinStackView.addArrangedSubview(passwordField)
+        for (index, field) in textFields.enumerated() {
+            
+            if index >= placeholders.count - 1 {
+                field.isSecureTextEntry = true
+            }
+            field.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            field.placeholder = placeholders[index].placeHolder
+            signinStackView.addArrangedSubview(field)
+        }
         
 //        Signin button configuration
         signinButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         signinButton.topAnchor.constraint(equalTo: signinStackView.bottomAnchor, constant: 20).isActive = true
+        signinButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3).isActive = true
         signinButton.addTarget(self, action: #selector(didTapSignin), for: .touchUpInside)
         
 //        New User stackView config
         let newuserLabel = UILabel()
-        newuserLabel.font = UIFont(name: "Arial", size: 17)
+        newuserLabel.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 17)
         newuserLabel.text = "New user?"
         
         let signupButton = UIButton()
@@ -184,6 +194,7 @@ class signinViewController : UIViewController {
             items[index].selectedImage = UIImage(named: tabBarImages[index].selectedImage)
         }
         navBarVC.modalPresentationStyle = .fullScreen
+        navBarVC.tabBar.backgroundColor = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0)
         present(navBarVC, animated: true)
         
     }

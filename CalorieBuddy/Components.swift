@@ -36,8 +36,7 @@ class appHeader : UIView {
         
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        headerLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor,constant: 20).isActive = true
-    }
+        headerLabel.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor).isActive = true    }
 }
 
 class postCard : UIView {

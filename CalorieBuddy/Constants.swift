@@ -16,5 +16,8 @@ struct Constants{
         let image:String
         let selectedImage:String
     }
+    struct profileImage {
+        let image:String
+    }
 }
     

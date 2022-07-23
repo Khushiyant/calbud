@@ -10,17 +10,20 @@ import UIKit
 
 class searchViewController : UIViewController {
     
-    let header : appHeader = {
+    private let header : appHeader = {
        let head = appHeader()
+        head.translatesAutoresizingMaskIntoConstraints = false
+
         return head
     }()
     
-    let dateView : UIStackView = {
+    private let dateView : UIStackView = {
         
 //        Taday Title
         let today = UILabel()
         today.text = "TODAY"
         today.font = UIFont(name: "Arial Bold", size: 25)
+        
         
 //        Today's Date
         let todayDate = UILabel()
@@ -39,12 +42,6 @@ class searchViewController : UIViewController {
         return view
     }()
     
-    let searchBar : UISearchController = {
-        let search = UISearchController()
-        search.searchBar.sizeToFit()
-        return search
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -59,7 +56,6 @@ class searchViewController : UIViewController {
     fileprivate func setupLayout(){
         
 //        Header Configuration
-        header.translatesAutoresizingMaskIntoConstraints = false
         header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         header.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
         header.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
@@ -67,11 +63,6 @@ class searchViewController : UIViewController {
 //        dateView config
         dateView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 20).isActive = true
         dateView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        
-//        searchBar config
-        
-//        searchBar.topAnchor.constraint(equalTo: dateView.bottomAnchor).isActive = true
-//        searchBar.leadingAnchor.constraint(equalTo: dateView.leadingAnchor, constant: 20).isActive = true
         
     }
 }
