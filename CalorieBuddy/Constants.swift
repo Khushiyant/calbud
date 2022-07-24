@@ -12,10 +12,12 @@ struct Constants{
     struct signupTextFields {
         let placeHolder:String
     }
+    
     struct tabBarImages {
         let image:String
         let selectedImage:String
     }
+    
     struct profileImage {
         let image:String
     }

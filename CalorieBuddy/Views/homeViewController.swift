@@ -74,7 +74,6 @@ class homeViewController : UIViewController {
         
         let headerView = UIStackView()
         headerView.distribution = .fillProportionally
-        headerView.spacing = 10
         
         
         let image = UIImageView()
@@ -137,7 +136,9 @@ class homeViewController : UIViewController {
         graphArea.topAnchor.constraint(equalTo: slogan.bottomAnchor, constant: 20).isActive = true
         graphArea.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.4).isActive = true
         
-        month.text = "April"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        month.text = "\(dateFormatter.string(from: Date()))"
         month.topAnchor.constraint(equalTo: graphArea.topAnchor, constant: 10).isActive = true
         month.leadingAnchor.constraint(equalTo: graphArea.leadingAnchor, constant: 10).isActive = true
         

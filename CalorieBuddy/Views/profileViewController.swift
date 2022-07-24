@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class profileViewController : UIViewController {
+class profileViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let avatarImage : Constants.profileImage = Constants.profileImage(image: "curly-hair")
     
@@ -52,7 +52,9 @@ class profileViewController : UIViewController {
         
         return label
     }()
-        
+    
+    let tableView : UITableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -61,8 +63,25 @@ class profileViewController : UIViewController {
         view.addSubview(profileImage)
         view.addSubview(userLabel)
         view.addSubview(joinedDate)
+        view.addSubview(tableView)
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         setupLayout()
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "Hello"
+        return cell
+    }
+    
     fileprivate func setupLayout(){
 
 //        Header Configuration
@@ -89,6 +108,9 @@ class profileViewController : UIViewController {
         joinedDate.text = "Joined on \(date)"
         joinedDate.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 5).isActive = true
         joinedDate.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  = true
+        
+//        Table view config
+        
         
         
     }
