@@ -96,6 +96,32 @@ class signinViewController : UIViewController {
         return stackView
     }()
     
+    private let orBar : UILabel = {
+       
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        label.text = "Or"
+        label.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20)
+        label.layer.borderWidth = 1
+        label.layer.cornerRadius = 10
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    private let googleIcon : UIImageView = {
+       
+        let view = UIImageView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.image = UIImage(named: "google")
+        view.contentMode = .scaleAspectFit
+        view.isUserInteractionEnabled = true
+        
+        return view
+    }()
+    
     private let playerImage : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -112,6 +138,8 @@ class signinViewController : UIViewController {
         view.addSubview(signinStackView)
         view.addSubview(signinButton)
         view.addSubview(newuserStackView)
+        view.addSubview(orBar)
+        view.addSubview(googleIcon)
         view.addSubview(playerImage)
         
         setupLayout()
@@ -158,6 +186,20 @@ class signinViewController : UIViewController {
         newuserStackView.addArrangedSubview(newuserLabel)
         newuserStackView.addArrangedSubview(signupButton)
         
+        
+//        Or bar
+        orBar.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        orBar.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25).isActive = true
+        orBar.topAnchor.constraint(equalTo: newuserStackView.bottomAnchor, constant: 10).isActive = true
+        orBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+//        Google icon config
+        googleIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        googleIcon.topAnchor.constraint(equalTo: orBar.bottomAnchor, constant: 20).isActive = true
+        
+        let singleTab = UITapGestureRecognizer(target: self, action: #selector(googleAuth))
+        googleIcon.addGestureRecognizer(singleTab)
+        
 //        Player image config
         playerImage.centerXAnchor.constraint(equalTo: view.trailingAnchor, constant: -100).isActive = true
         playerImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 150).isActive = true
@@ -167,6 +209,7 @@ class signinViewController : UIViewController {
         playerImage.image = UIImage(named: "signinPlayer")
     }
     
+//    Tap Functions
     @objc private func didTapSignup(){
         let signupVC = entryViewController()
         let navVC = UINavigationController(rootViewController: signupVC)
@@ -197,6 +240,9 @@ class signinViewController : UIViewController {
         navBarVC.tabBar.backgroundColor = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0)
         present(navBarVC, animated: true)
         
+    }
+    @objc private func googleAuth(){
+        print("GoogleAuth")
     }
 }
 
