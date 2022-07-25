@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
+import Charts
 
-class homeViewController : UIViewController {
+class homeViewController : UIViewController, ChartViewDelegate {
+    
+    private let urlString = "http://127.0.0.1:8000/tip/"
     
     private lazy var header : appHeader = {
         
@@ -64,6 +67,12 @@ class homeViewController : UIViewController {
         return view
     }()
     
+    private let barChart : BarChartView = {
+        let chart = BarChartView()
+        chart.translatesAutoresizingMaskIntoConstraints = false
+        return chart
+    }()
+    
     private let tipView : UIStackView = {
        
         let view = UIStackView()
@@ -91,6 +100,8 @@ class homeViewController : UIViewController {
         return view
     }()
     
+    var tipResult : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -98,11 +109,14 @@ class homeViewController : UIViewController {
         
         view.addSubview(header)
         view.addSubview(slogan)
-        view.addSubview(graphArea)
         view.addSubview(month)
         view.addSubview(weight)
+        view.addSubview(graphArea)
+        
         view.addSubview(tipView)
         
+        
+        dataFetch()
         setupLayout()
     }
     fileprivate func setupLayout(){
@@ -146,8 +160,27 @@ class homeViewController : UIViewController {
         weight.topAnchor.constraint(equalTo: month.bottomAnchor).isActive = true
         weight.leadingAnchor.constraint(equalTo: graphArea.leadingAnchor, constant: 10).isActive = true
         
+        
+        //        Bar Chart config
+        var entries = [BarChartDataEntry]()
+        
+        for x in 0..<100 {
+            entries.append(BarChartDataEntry(x: Double(x), y: Double.random(in: 1...1000)))
+        }
+        
+        let set = BarChartDataSet()
+        set.colors = ChartColorTemplates.pastel()
+        let data = BarChartData(dataSet: set)
+        
+        barChart.frame = CGRect(x: 0, y: 0, width: graphArea.frame.size.width, height: graphArea.frame.size.height)
+        barChart.data = data
+        barChart.center = graphArea.center
+        
+        
         graphArea.addSubview(month)
         graphArea.addSubview(weight)
+        graphArea.addSubview(barChart)
+
         
 //        Tip view config
         tipView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width*0.1).isActive = true
@@ -156,10 +189,25 @@ class homeViewController : UIViewController {
         
         let labeltip = UILabel()
         
-        labeltip.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
-        
+        labeltip.text = tipResult
         tipView.addArrangedSubview(labeltip)
+    }
+    
+    fileprivate func dataFetch(){
+        guard let url = URL(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in guard let  data = data, error == nil else {return}
+            do {
+                let jsonResult = try JSONDecoder().decode(GraphAPIResponse.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self?.tipResult = jsonResult.result.tip
+                }
+            }
+            catch {
+                print(error)
+            }
+        }
         
-        
+        task.resume()
     }
 }

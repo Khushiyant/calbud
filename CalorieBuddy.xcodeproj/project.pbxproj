@@ -15,6 +15,7 @@
 		BA25601928898D7200DA86FD /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601828898D7200DA86FD /* profileViewController.swift */; };
 		BA25601C2889DC0F00DA86FD /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601B2889DC0F00DA86FD /* Components.swift */; };
 		BA5C7518288BD86800EF30D6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BA5C7517288BD86800EF30D6 /* README.md */; };
+		BABD1A00288E5CF80002FF72 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD19FF288E5CF80002FF72 /* ResponseData.swift */; };
 		BAE130392888883200ACD9C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE130382888883200ACD9C3 /* AppDelegate.swift */; };
 		BAE1303B2888883200ACD9C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1303A2888883200ACD9C3 /* SceneDelegate.swift */; };
 		BAE1303D2888883200ACD9C3 /* entryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1303C2888883200ACD9C3 /* entryViewController.swift */; };
@@ -35,6 +36,7 @@
 		BA25601828898D7200DA86FD /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		BA25601B2889DC0F00DA86FD /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		BA5C7517288BD86800EF30D6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BABD19FF288E5CF80002FF72 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		BAE130352888883200ACD9C3 /* CalorieBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE130382888883200ACD9C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE1303A2888883200ACD9C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +66,6 @@
 				64F5771DD715178D68004A83 /* Pods-CalorieBuddy.debug.xcconfig */,
 				14F280FD8E5FA1413FC679C4 /* Pods-CalorieBuddy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -99,6 +100,7 @@
 				BAE130462888883400ACD9C3 /* Info.plist */,
 				BA0496A628893EDF00D0A392 /* Constants.swift */,
 				BA25601B2889DC0F00DA86FD /* Components.swift */,
+				BABD19FF288E5CF80002FF72 /* ResponseData.swift */,
 			);
 			path = CalorieBuddy;
 			sourceTree = "<group>";
@@ -250,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA25601728898D5D00DA86FD /* searchViewController.swift in Sources */,
+				BABD1A00288E5CF80002FF72 /* ResponseData.swift in Sources */,
 				BAE1303D2888883200ACD9C3 /* entryViewController.swift in Sources */,
 				BA25601C2889DC0F00DA86FD /* Components.swift in Sources */,
 				BA25601528898CA600DA86FD /* homeViewController.swift in Sources */,
