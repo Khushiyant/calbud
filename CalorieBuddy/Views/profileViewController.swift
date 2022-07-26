@@ -8,7 +8,18 @@
 import Foundation
 import UIKit
 
-class profileViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class profileViewController : UIViewController {
+    
+    private let profileSections = [Constants.profileSection(section: "CURRENT STATUS"),
+                                   Constants.profileSection(section: "ABOUT")]
+    
+    private let currentStatusCells = [Constants.currentStatusCell(cell: "Current Weight", viewController: aboutViewController()),
+                                      Constants.currentStatusCell(cell: "Week Avg", viewController: aboutViewController()),
+                                      Constants.currentStatusCell(cell: "Trend", viewController: aboutViewController())]
+    
+    private let aboutCells = [Constants.aboutCell(cell: "About Us", viewController: aboutViewController()),
+                              Constants.aboutCell(cell: "Working", viewController: aboutViewController()),
+                              Constants.aboutCell(cell: "More", viewController: aboutViewController())]
     
     private let avatarImage : Constants.profileImage = Constants.profileImage(image: "curly-hair")
     
@@ -53,7 +64,17 @@ class profileViewController : UIViewController, UITableViewDelegate, UITableView
         return label
     }()
     
-    let tableView : UITableView = UITableView()
+    let tableView : UITableView = {
+        let view = UITableView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isScrollEnabled = false
+        return view
+    }()
+    let tableContainer : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +84,7 @@ class profileViewController : UIViewController, UITableViewDelegate, UITableView
         view.addSubview(profileImage)
         view.addSubview(userLabel)
         view.addSubview(joinedDate)
-        view.addSubview(tableView)
+        view.addSubview(tableContainer)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
@@ -72,15 +93,16 @@ class profileViewController : UIViewController, UITableViewDelegate, UITableView
         setupLayout()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+//        Table view config
+        tableView.frame = tableContainer.bounds
+    
+
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Hello"
-        return cell
-    }
+    
     
     fileprivate func setupLayout(){
 
@@ -109,11 +131,72 @@ class profileViewController : UIViewController, UITableViewDelegate, UITableView
         joinedDate.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 5).isActive = true
         joinedDate.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  = true
         
-//        Table view config
+//        Table container config
         
-        
-        
+        tableContainer.topAnchor.constraint(equalTo: joinedDate.bottomAnchor, constant: 20).isActive = true
+        tableContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        tableContainer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
+        tableContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableContainer.addSubview(tableView)
     }
     
 }
+extension profileViewController : UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return profileSections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentStatusCells.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return profileSections[section].section
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 {
+            let navVC = UINavigationController(rootViewController: currentStatusCells[indexPath.row].viewController)
+            present(navVC, animated: true)
+        }
+        else if indexPath.section == 1 {
+            let navVC = UINavigationController(rootViewController: aboutCells[indexPath.row].viewController)
+            present(navVC, animated: true)
+        }
 
+    }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let sectionTitle = sectionHeader()
+//
+//        if section == 0 {
+//            let currentViewModel = Constants.headerData(icon: "edit", header: "CURRENT STATUS")
+//            sectionTitle.config(viewModel: currentViewModel)
+//        }
+//        else if section == 1 {
+//            let aboutViewModel = Constants.headerData(icon: "edit", header: "ABOUT")
+//            sectionTitle.config(viewModel: aboutViewModel)
+//        }
+//
+//        return sectionTitle
+//    }
+    
+}
+extension profileViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 16)
+        
+        cell.layer.borderWidth = 1
+        if indexPath.section == 0 {
+            cell.textLabel?.text = currentStatusCells[indexPath.row].cell
+        }
+        else if indexPath.section == 1 {
+            cell.textLabel?.text = aboutCells[indexPath.row].cell
+        }
+        return cell
+    }
+}

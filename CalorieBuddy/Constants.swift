@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 struct Constants{
@@ -20,6 +21,22 @@ struct Constants{
     
     struct profileImage {
         let image:String
+    }
+    
+    struct profileSection {
+        let section : String
+    }
+    struct currentStatusCell {
+        let cell : String
+        let viewController : UIViewController
+    }
+    struct aboutCell {
+        let cell : String
+        let viewController : UIViewController
+    }
+    struct headerData {
+        let icon : String
+        let header : String
     }
 }
     

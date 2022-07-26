@@ -41,7 +41,6 @@ class homeViewController : UIViewController, ChartViewDelegate {
         
     }()
  
-    
     private let weight : UILabel = {
         
         let label = UILabel()
@@ -99,8 +98,7 @@ class homeViewController : UIViewController, ChartViewDelegate {
         view.addArrangedSubview(headerView)
         return view
     }()
-    
-    var tipResult : String = ""
+    var tip : tipData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,9 +113,8 @@ class homeViewController : UIViewController, ChartViewDelegate {
         
         view.addSubview(tipView)
         
-        
-        dataFetch()
         setupLayout()
+        
     }
     fileprivate func setupLayout(){
         
@@ -125,7 +122,7 @@ class homeViewController : UIViewController, ChartViewDelegate {
         header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         header.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
         header.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
-        
+       
 //        Slogan Stack View
         slogan.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         slogan.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 30).isActive = true
@@ -189,25 +186,34 @@ class homeViewController : UIViewController, ChartViewDelegate {
         
         let labeltip = UILabel()
         
-        labeltip.text = tipResult
+        
+        labeltip.text = "No Data Found"
         tipView.addArrangedSubview(labeltip)
     }
     
-    fileprivate func dataFetch(){
-        guard let url = URL(string: urlString) else { return }
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in guard let  data = data, error == nil else {return}
-            do {
-                let jsonResult = try JSONDecoder().decode(GraphAPIResponse.self, from: data)
-                
-                DispatchQueue.main.async {
-                    self?.tipResult = jsonResult.result.tip
-                }
+}
+
+extension URLSession {
+    func request<T:Codable>(url:URL?,
+                             expecting :T.Type,
+                             completion: @escaping (Result<T, Error>) -> Void){
+        guard let url = url else {
+            return
+        }
+        let task = dataTask(with: url) {
+            data, _, error in guard let data = data, error == nil else {
+                return
             }
-            catch {
+            
+            do{
+                let result = try JSONDecoder().decode(expecting, from: data)
+                completion(.success(result))
+            }
+            catch{
                 print(error)
             }
         }
-        
         task.resume()
     }
+    
 }

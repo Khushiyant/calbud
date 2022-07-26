@@ -36,7 +36,9 @@ class appHeader : UIView {
         
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        headerLabel.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor).isActive = true    }
+        headerLabel.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        
+    }
 }
 
 class postCard : UIView {
@@ -55,4 +57,49 @@ class postCard : UIView {
     private func setupLayout(){
         
     }
+}
+class sectionHeader : UIView {
+        
+    private let stackView : UIStackView = {
+       
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.distribution = .fill
+        view.alignment = .fill
+        return view
+    }()
+    
+    private let iconImage : UIImageView = {
+        
+        let icon = UIImageView()
+        icon.contentMode = .scaleAspectFit
+        return icon
+    }()
+    
+    private let header : UILabel = {
+       
+        let label = UILabel()
+        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 18)
+        return label
+    }()
+
+    override init(frame : CGRect){
+        super.init(frame: frame)
+        self.addSubview(stackView)
+        
+        stackView.addArrangedSubview(iconImage)
+        stackView.addArrangedSubview(header)
+
+    }
+    
+    required init?(coder: NSCoder){
+        super.init(coder: coder)
+    }
+    
+    func config(viewModel : Constants.headerData){
+        
+        header.text = viewModel.header
+        iconImage.image = UIImage(named: viewModel.icon)
+    }
+
 }
