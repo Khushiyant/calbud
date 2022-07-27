@@ -54,6 +54,7 @@ class signinViewController : UIViewController {
             
             field.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 18)
             field.layer.borderWidth = 1
+            field.layer.borderColor = UIColor.darkGray.cgColor
             field.layer.cornerRadius = 15
             
 //            Add padding
@@ -104,6 +105,7 @@ class signinViewController : UIViewController {
         label.text = "Or"
         label.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20)
         label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.darkGray.cgColor
         label.layer.cornerRadius = 10
         label.textAlignment = .center
         
@@ -132,7 +134,7 @@ class signinViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         view.addSubview(heading)
         view.addSubview(signinStackView)
@@ -237,7 +239,7 @@ class signinViewController : UIViewController {
             items[index].selectedImage = UIImage(named: tabBarImages[index].selectedImage)
         }
         navBarVC.modalPresentationStyle = .fullScreen
-        navBarVC.tabBar.backgroundColor = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0)
+        navBarVC.tabBar.backgroundColor = .quaternarySystemFill
         present(navBarVC, animated: true)
         
     }

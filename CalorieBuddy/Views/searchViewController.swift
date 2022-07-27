@@ -39,21 +39,22 @@ class searchViewController : UIViewController {
         return view
     }()
     
-//    private let postCard : postCard = {
-//        let card = postCard()
-//
-//        return card
-//    }()
-    
-    let searchBar = UISearchBar()
-    
+    private let searchContainer : UIView = {
+        
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+        
+    }()
+
+    private let searchBar = UISearchController()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         view.addSubview(header)
         view.addSubview(dateView)
-        view.addSubview(searchBar)
+        view.addSubview(searchContainer)
         
         setupLayout()
     }
@@ -61,19 +62,22 @@ class searchViewController : UIViewController {
     fileprivate func setupLayout(){
         
 //        Header Configuration
-        header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        header.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
+        header.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        header.topAnchor.constraint(equalTo: view.topAnchor, constant: -1).isActive = true
+        header.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.01).isActive  = true
         header.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
 
 //        dateView config
         dateView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 20).isActive = true
         dateView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         
-//        Search Bar config
+//        Search container
+        searchContainer.backgroundColor = .darkGray
+        searchContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        searchContainer.topAnchor.constraint(equalTo: dateView.bottomAnchor, constant: 20).isActive = true
+        searchContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        searchContainer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
         
-//        Postcard config
-//        postCard.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        postCard.topAnchor.constraint(equalTo: dateView.bottomAnchor, constant: 10).isActive = true
         
     }
 }

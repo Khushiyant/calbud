@@ -38,7 +38,7 @@ class profileViewController : UIViewController {
         image.backgroundColor = UIColor(red: 231.0/255.0, green: 207.0/255.0, blue: 138.0/255.0, alpha: 1.0)
         image.layer.cornerRadius = 20
         image.layer.borderWidth = 1
-        image.layer.shadowColor = UIColor.black.cgColor
+        image.layer.shadowColor = UIColor.systemGray.cgColor
         image.layer.shadowOpacity = 0.2
         image.layer.shadowOffset = .init(width: 5, height: 5)
         image.layer.shadowRadius = 0
@@ -49,6 +49,7 @@ class profileViewController : UIViewController {
     private let userLabel : UILabel = {
        
         let label = UILabel()
+        label.textColor = .systemIndigo
         label.font = UIFont(name: "Zapfino", size: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -58,7 +59,7 @@ class profileViewController : UIViewController {
     private let joinedDate : UILabel = {
        
         let label = UILabel()
-        label.font = UIFont(name: "Chalkduster", size: 12)
+        label.font = UIFont(name: "Chalkduster", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -78,7 +79,7 @@ class profileViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         view.addSubview(header)
         view.addSubview(profileImage)
@@ -107,8 +108,9 @@ class profileViewController : UIViewController {
     fileprivate func setupLayout(){
 
 //        Header Configuration
-        header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        header.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
+        header.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        header.topAnchor.constraint(equalTo: view.topAnchor, constant: -1).isActive = true
+        header.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.01).isActive  = true
         header.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
         
 //        Profile image config
@@ -191,6 +193,7 @@ extension profileViewController : UITableViewDataSource {
         cell.textLabel?.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 16)
         
         cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.darkGray.cgColor
         if indexPath.section == 0 {
             cell.textLabel?.text = currentStatusCells[indexPath.row].cell
         }

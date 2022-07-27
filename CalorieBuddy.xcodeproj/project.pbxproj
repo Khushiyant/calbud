@@ -17,6 +17,8 @@
 		BA5C7518288BD86800EF30D6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BA5C7517288BD86800EF30D6 /* README.md */; };
 		BABD1A00288E5CF80002FF72 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD19FF288E5CF80002FF72 /* ResponseData.swift */; };
 		BADCE3EB28906B7A00344657 /* aboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADCE3EA28906B7A00344657 /* aboutViewController.swift */; };
+		BADCE3F228919EA500344657 /* aboutUs.txt in Resources */ = {isa = PBXBuildFile; fileRef = BADCE3F128919EA500344657 /* aboutUs.txt */; };
+		BADCE3F82891BC6200344657 /* Calbud-logos_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = BADCE3F72891BC6200344657 /* Calbud-logos_transparent.png */; };
 		BAE130392888883200ACD9C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE130382888883200ACD9C3 /* AppDelegate.swift */; };
 		BAE1303B2888883200ACD9C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1303A2888883200ACD9C3 /* SceneDelegate.swift */; };
 		BAE1303D2888883200ACD9C3 /* entryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1303C2888883200ACD9C3 /* entryViewController.swift */; };
@@ -39,6 +41,8 @@
 		BA5C7517288BD86800EF30D6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BABD19FF288E5CF80002FF72 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		BADCE3EA28906B7A00344657 /* aboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutViewController.swift; sourceTree = "<group>"; };
+		BADCE3F128919EA500344657 /* aboutUs.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = aboutUs.txt; sourceTree = "<group>"; };
+		BADCE3F72891BC6200344657 /* Calbud-logos_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calbud-logos_transparent.png"; sourceTree = "<group>"; };
 		BAE130352888883200ACD9C3 /* CalorieBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE130382888883200ACD9C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE1303A2888883200ACD9C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,9 +78,17 @@
 		BADCE3E928906B5200344657 /* InfoViews */ = {
 			isa = PBXGroup;
 			children = (
+				BADCE3F128919EA500344657 /* aboutUs.txt */,
 				BADCE3EA28906B7A00344657 /* aboutViewController.swift */,
 			);
 			path = InfoViews;
+			sourceTree = "<group>";
+		};
+		BADCE3EC28919E1500344657 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 		BAE1302C2888883200ACD9C3 = {
@@ -101,6 +113,7 @@
 		BAE130372888883200ACD9C3 /* CalorieBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				BADCE3EC28919E1500344657 /* Content */,
 				BADCE3E928906B5200344657 /* InfoViews */,
 				BAE1304D28888BEC00ACD9C3 /* Resources */,
 				BAE1304C28888BD900ACD9C3 /* Views */,
@@ -131,6 +144,7 @@
 		BAE1304D28888BEC00ACD9C3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BADCE3F72891BC6200344657 /* Calbud-logos_transparent.png */,
 				BAE130512889133F00ACD9C3 /* Faxnes.ttf */,
 				BAE130522889133F00ACD9C3 /* Ranger.ttf */,
 			);
@@ -205,8 +219,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BADCE3F228919EA500344657 /* aboutUs.txt in Resources */,
 				BAE130452888883400ACD9C3 /* LaunchScreen.storyboard in Resources */,
 				BAE130542889133F00ACD9C3 /* Ranger.ttf in Resources */,
+				BADCE3F82891BC6200344657 /* Calbud-logos_transparent.png in Resources */,
 				BA5C7518288BD86800EF30D6 /* README.md in Resources */,
 				BAE130422888883400ACD9C3 /* Assets.xcassets in Resources */,
 				BAE130532889133F00ACD9C3 /* Faxnes.ttf in Resources */,

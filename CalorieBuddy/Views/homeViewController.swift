@@ -46,6 +46,7 @@ class homeViewController : UIViewController, ChartViewDelegate {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 25)
+        label.textColor = .black
         
         return label
     }()
@@ -57,7 +58,7 @@ class homeViewController : UIViewController, ChartViewDelegate {
         view.backgroundColor = UIColor(red: 255.0/255.0, green: 227.0/255.0, blue: 56.0/255.0, alpha: 1.0)
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 20
-        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowColor = UIColor.darkGray.cgColor
         view.layer.shadowOffset = .init(width: 5, height: 5)
         view.layer.shadowOpacity = 1
         view.layer.shadowRadius = 0
@@ -102,8 +103,7 @@ class homeViewController : UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
+        view.backgroundColor = .systemBackground        
         
         view.addSubview(header)
         view.addSubview(slogan)
@@ -119,8 +119,9 @@ class homeViewController : UIViewController, ChartViewDelegate {
     fileprivate func setupLayout(){
         
 //        Header Configuration
-        header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        header.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
+        header.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        header.topAnchor.constraint(equalTo: view.topAnchor, constant: -1).isActive = true
+        header.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.01).isActive  = true
         header.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
        
 //        Slogan Stack View
@@ -135,7 +136,7 @@ class homeViewController : UIViewController, ChartViewDelegate {
         labelTrack.text = "Track"
         labelTrack.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 35)
         labelTrack.textColor = UIColor(red: 0.0/255.0, green: 255.0/255.0, blue: 209.0/255.0, alpha: 1.0)
-        labelTrack.shadowColor = UIColor.black
+        labelTrack.shadowColor = UIColor.darkGray
         labelTrack.shadowOffset = .init(width: 3, height: 3)
         
         slogan.addArrangedSubview(labelStart)

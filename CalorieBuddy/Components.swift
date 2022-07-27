@@ -21,8 +21,9 @@ class appHeader : UIView {
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0)
+        self.backgroundColor = .quaternarySystemFill
         self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.darkGray.cgColor
         
         self.addSubview(headerLabel)
         
