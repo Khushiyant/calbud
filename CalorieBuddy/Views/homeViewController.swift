@@ -35,7 +35,11 @@ class homeViewController : UIViewController, ChartViewDelegate {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
-        label.textColor = .white
+        label.textColor = .systemCyan
+        label.layer.shadowColor = UIColor.black.cgColor
+        label.layer.shadowOffset = .init(width: 0, height: 1)
+        label.layer.shadowOpacity = 1
+        label.layer.shadowRadius = 0
         
         return label
         

@@ -191,7 +191,6 @@ extension profileViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 16)
-        
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.darkGray.cgColor
         if indexPath.section == 0 {

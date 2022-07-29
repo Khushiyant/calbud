@@ -47,14 +47,13 @@ class searchViewController : UIViewController {
         
     }()
 
-    private let searchBar = UISearchController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
         view.addSubview(header)
         view.addSubview(dateView)
-        view.addSubview(searchContainer)
         
         setupLayout()
     }
