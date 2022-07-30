@@ -54,6 +54,7 @@ class searchViewController : UIViewController {
         
         view.addSubview(header)
         view.addSubview(dateView)
+        view.addSubview(searchContainer)
         
         setupLayout()
     }

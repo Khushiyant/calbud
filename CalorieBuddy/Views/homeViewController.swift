@@ -90,7 +90,7 @@ class homeViewController : UIViewController, ChartViewDelegate {
         
         
         let image = UIImageView()
-        image.image = UIImage(named: "edit")
+        image.image = UIImage(named: "idea")
         image.contentMode = .scaleAspectFit
         
         let labelFit = UILabel()

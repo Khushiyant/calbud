@@ -183,7 +183,17 @@ class entryViewController: UIViewController {
     }
     
     @objc private func didTapSignup(){
-        
+//        var data:[String] = []
+//        for field in signupStackView.arrangedSubviews {
+//            guard let fieldData = (field as? UITextField)?.text, !data.isEmpty else { return }
+//            data.append(fieldData)
+//        }
+//        if data[2] == data[3]{
+//            startSigningUp(username: data[0], email: data[1],password: data[2])
+//        }
+        showNavController()
+    }
+    func showNavController(){
         let navBarVC = UITabBarController()
         
         let homeVC = homeViewController()
@@ -205,7 +215,9 @@ class entryViewController: UIViewController {
         navBarVC.modalPresentationStyle = .fullScreen
         navBarVC.tabBar.backgroundColor = .quaternarySystemFill
         present(navBarVC, animated: true)
-        
     }
+    func startSigningUp(username: String, email: String, password: String) {
+            print("Api call: ", email, password, username)
+        }
 }
 
