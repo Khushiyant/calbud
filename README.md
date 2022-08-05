@@ -29,4 +29,4 @@ Easy starting points are also reviewing [pull requests](https://github.com/calbu
 
 ## Support
 
-If you need assistance or want to ask a question about the iOS app, you are welcome to ask for support in our forums or the [Zulip dev channel](https://calbud.zulipchat.com/#narrow/stream/334280-general). If you have found a bug, feel free to [open a new Issue on GitHub](https://github.com/Khushiyant/calbud/issues). Keep in mind, that this repository only manages the iOS app. If you find bugs or have problems with the server/backend, you should refer the [Nextcloud server team](https://github.com/Khushiyant/calbud-api) for help!
+If you need assistance or want to ask a question about the iOS app, you are welcome to ask for support in our forums or the [Zulip dev channel](https://calbud.zulipchat.com/#narrow/stream/334280-general). If you have found a bug, feel free to [open a new Issue on GitHub](https://github.com/Khushiyant/calbud/issues). Keep in mind, that this repository only manages the iOS app. If you find bugs or have problems with the server/backend, you should refer the [api repo](https://github.com/Khushiyant/calbud-api) for help!
