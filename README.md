@@ -25,7 +25,7 @@ More information how to contribute: [https://github.com/Khushiyant/calbud/](http
 You can start by forking this repository and creating pull requests on the develop
 branch. Maybe start working on [starter issues](https://github.com/Khushiyant/calbud/issues/labels/good%20first%20issue). 
 
-Easy starting points are also reviewing [pull requests](https://github.com/calbud/ios/pulls)
+Easy starting points are also reviewing [pull requests](https://github.com/Khushiyant/calbud/pulls)
 
 ## Support
 
