@@ -8,35 +8,33 @@
 import Foundation
 import UIKit
 
+struct Constants {
+    struct SignupTextFields {
+        let placeHolder: String
+    }
 
-struct Constants{
-    struct signupTextFields {
-        let placeHolder:String
+    struct TabBarImages {
+        let image: String
+        let selectedImage: String
     }
-    
-    struct tabBarImages {
-        let image:String
-        let selectedImage:String
+
+    struct ProfileImage {
+        let image: String
     }
-    
-    struct profileImage {
-        let image:String
+
+    struct ProfileSection {
+        let section: String
     }
-    
-    struct profileSection {
-        let section : String
+    struct CurrentStatusCell {
+        let cell: String
+        let viewController: UIViewController
     }
-    struct currentStatusCell {
-        let cell : String
-        let viewController : UIViewController
+    struct AboutCell {
+        let cell: String
+        let viewController: UIViewController
     }
-    struct aboutCell {
-        let cell : String
-        let viewController : UIViewController
-    }
-    struct headerData {
-        let icon : String
-        let header : String
+    struct HeaderData {
+        let icon: String
+        let header: String
     }
 }
-    

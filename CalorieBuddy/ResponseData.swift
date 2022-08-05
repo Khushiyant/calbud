@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct GraphAPIResponse : Codable {
-    let status : Int
-    let result : tipData
+struct GraphAPIResponse: Codable {
+    let status: Int
+    let result: TipData
 }
-struct tipData : Codable {
-    let id : Int
-    let tip : String
+struct TipData: Codable {
+    let id: Int
+    let tip: String
 }

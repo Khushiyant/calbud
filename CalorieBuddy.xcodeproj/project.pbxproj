@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		6A27D3D8100C0604A7C4A73F /* Pods_CalorieBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191F2367EE2ECE0D648226C3 /* Pods_CalorieBuddy.framework */; };
 		BA0496A728893EDF00D0A392 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0496A628893EDF00D0A392 /* Constants.swift */; };
-		BA25601328898BCD00DA86FD /* signinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601228898BCD00DA86FD /* signinViewController.swift */; };
-		BA25601528898CA600DA86FD /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601428898CA600DA86FD /* homeViewController.swift */; };
-		BA25601728898D5D00DA86FD /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601628898D5D00DA86FD /* searchViewController.swift */; };
-		BA25601928898D7200DA86FD /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601828898D7200DA86FD /* profileViewController.swift */; };
+		BA25601328898BCD00DA86FD /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601228898BCD00DA86FD /* SigninViewController.swift */; };
+		BA25601528898CA600DA86FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601428898CA600DA86FD /* HomeViewController.swift */; };
+		BA25601728898D5D00DA86FD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601628898D5D00DA86FD /* SearchViewController.swift */; };
+		BA25601928898D7200DA86FD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601828898D7200DA86FD /* ProfileViewController.swift */; };
 		BA25601C2889DC0F00DA86FD /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25601B2889DC0F00DA86FD /* Components.swift */; };
 		BA5C7518288BD86800EF30D6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BA5C7517288BD86800EF30D6 /* README.md */; };
 		BABD1A00288E5CF80002FF72 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD19FF288E5CF80002FF72 /* ResponseData.swift */; };
-		BADCE3EB28906B7A00344657 /* aboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADCE3EA28906B7A00344657 /* aboutViewController.swift */; };
+		BADCE3EB28906B7A00344657 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADCE3EA28906B7A00344657 /* AboutViewController.swift */; };
 		BADCE3F228919EA500344657 /* aboutUs.txt in Resources */ = {isa = PBXBuildFile; fileRef = BADCE3F128919EA500344657 /* aboutUs.txt */; };
 		BADCE3F82891BC6200344657 /* Calbud-logos_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = BADCE3F72891BC6200344657 /* Calbud-logos_transparent.png */; };
 		BAE130392888883200ACD9C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE130382888883200ACD9C3 /* AppDelegate.swift */; };
 		BAE1303B2888883200ACD9C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1303A2888883200ACD9C3 /* SceneDelegate.swift */; };
-		BAE1303D2888883200ACD9C3 /* entryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1303C2888883200ACD9C3 /* entryViewController.swift */; };
+		BAE1303D2888883200ACD9C3 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1303C2888883200ACD9C3 /* EntryViewController.swift */; };
 		BAE130422888883400ACD9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE130412888883400ACD9C3 /* Assets.xcassets */; };
 		BAE130452888883400ACD9C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE130432888883400ACD9C3 /* LaunchScreen.storyboard */; };
 		BAE130532889133F00ACD9C3 /* Faxnes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAE130512889133F00ACD9C3 /* Faxnes.ttf */; };
@@ -33,20 +33,20 @@
 		191F2367EE2ECE0D648226C3 /* Pods_CalorieBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F5771DD715178D68004A83 /* Pods-CalorieBuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieBuddy.debug.xcconfig"; path = "Target Support Files/Pods-CalorieBuddy/Pods-CalorieBuddy.debug.xcconfig"; sourceTree = "<group>"; };
 		BA0496A628893EDF00D0A392 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		BA25601228898BCD00DA86FD /* signinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signinViewController.swift; sourceTree = "<group>"; };
-		BA25601428898CA600DA86FD /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
-		BA25601628898D5D00DA86FD /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
-		BA25601828898D7200DA86FD /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
+		BA25601228898BCD00DA86FD /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		BA25601428898CA600DA86FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BA25601628898D5D00DA86FD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BA25601828898D7200DA86FD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BA25601B2889DC0F00DA86FD /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		BA5C7517288BD86800EF30D6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BABD19FF288E5CF80002FF72 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
-		BADCE3EA28906B7A00344657 /* aboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutViewController.swift; sourceTree = "<group>"; };
+		BADCE3EA28906B7A00344657 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BADCE3F128919EA500344657 /* aboutUs.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = aboutUs.txt; sourceTree = "<group>"; };
 		BADCE3F72891BC6200344657 /* Calbud-logos_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calbud-logos_transparent.png"; sourceTree = "<group>"; };
 		BAE130352888883200ACD9C3 /* CalorieBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE130382888883200ACD9C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE1303A2888883200ACD9C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BAE1303C2888883200ACD9C3 /* entryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entryViewController.swift; sourceTree = "<group>"; };
+		BAE1303C2888883200ACD9C3 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		BAE130412888883400ACD9C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAE130442888883400ACD9C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAE130462888883400ACD9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				BADCE3F128919EA500344657 /* aboutUs.txt */,
-				BADCE3EA28906B7A00344657 /* aboutViewController.swift */,
+				BADCE3EA28906B7A00344657 /* AboutViewController.swift */,
 			);
 			path = InfoViews;
 			sourceTree = "<group>";
@@ -132,11 +132,11 @@
 		BAE1304C28888BD900ACD9C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BAE1303C2888883200ACD9C3 /* entryViewController.swift */,
-				BA25601228898BCD00DA86FD /* signinViewController.swift */,
-				BA25601428898CA600DA86FD /* homeViewController.swift */,
-				BA25601628898D5D00DA86FD /* searchViewController.swift */,
-				BA25601828898D7200DA86FD /* profileViewController.swift */,
+				BAE1303C2888883200ACD9C3 /* EntryViewController.swift */,
+				BA25601228898BCD00DA86FD /* SigninViewController.swift */,
+				BA25601428898CA600DA86FD /* HomeViewController.swift */,
+				BA25601628898D5D00DA86FD /* SearchViewController.swift */,
+				BA25601828898D7200DA86FD /* ProfileViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +171,7 @@
 				BAE130322888883200ACD9C3 /* Frameworks */,
 				BAE130332888883200ACD9C3 /* Resources */,
 				4A558A46C4D4E5808D352CB8 /* [CP] Embed Pods Frameworks */,
+				BA1658ED289B8FA400167DF0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -271,6 +272,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BA1658ED289B8FA400167DF0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -278,16 +296,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA25601728898D5D00DA86FD /* searchViewController.swift in Sources */,
+				BA25601728898D5D00DA86FD /* SearchViewController.swift in Sources */,
 				BABD1A00288E5CF80002FF72 /* ResponseData.swift in Sources */,
-				BAE1303D2888883200ACD9C3 /* entryViewController.swift in Sources */,
+				BAE1303D2888883200ACD9C3 /* EntryViewController.swift in Sources */,
 				BA25601C2889DC0F00DA86FD /* Components.swift in Sources */,
-				BADCE3EB28906B7A00344657 /* aboutViewController.swift in Sources */,
-				BA25601528898CA600DA86FD /* homeViewController.swift in Sources */,
-				BA25601328898BCD00DA86FD /* signinViewController.swift in Sources */,
+				BADCE3EB28906B7A00344657 /* AboutViewController.swift in Sources */,
+				BA25601528898CA600DA86FD /* HomeViewController.swift in Sources */,
+				BA25601328898BCD00DA86FD /* SigninViewController.swift in Sources */,
 				BAE130392888883200ACD9C3 /* AppDelegate.swift in Sources */,
 				BAE1303B2888883200ACD9C3 /* SceneDelegate.swift in Sources */,
-				BA25601928898D7200DA86FD /* profileViewController.swift in Sources */,
+				BA25601928898D7200DA86FD /* ProfileViewController.swift in Sources */,
 				BA0496A728893EDF00D0A392 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
