@@ -5,7 +5,7 @@
 
 
 
-follow me on [https://twitter.com/khushiyant2002](https://twitter.com/khushiyant2002) or [https://twitter.com/khushiyant2002](https://twitter.com/khushiyant2002)
+follow me on [https://twitter.com/khushiyant2002](https://twitter.com/khushiyant2002) 
 
 ## How to contribute
 If you want to [contribute](https://github.com/Khushiyant/calbud/contribute/) to Calbud, you are very welcome:
