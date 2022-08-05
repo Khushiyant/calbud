@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Charts
 
 class AboutViewController: UIViewController {
 
@@ -35,6 +36,7 @@ class AboutViewController: UIViewController {
 
         view.addSubview(aboutUs)
         view.addSubview(aboutContent)
+
         setupLayout()
 
     }

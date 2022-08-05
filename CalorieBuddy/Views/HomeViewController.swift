@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Charts
 
-class HomeViewController: UIViewController, ChartViewDelegate {
+class HomeViewController: UIViewController {
 
     private let urlString = "http://127.0.0.1:8000/tip/"
 
@@ -70,22 +70,18 @@ class HomeViewController: UIViewController, ChartViewDelegate {
         return view
     }()
 
-    private let barChart: BarChartView = {
-        let chart = BarChartView()
-        chart.translatesAutoresizingMaskIntoConstraints = false
-        return chart
-    }()
-
     private let tipView: UIStackView = {
 
         let view = UIStackView()
 
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
-        view.distribution = .fillProportionally
+        view.distribution = .fill
 
         let headerView = UIStackView()
         headerView.distribution = .fillProportionally
+        headerView.layer.borderWidth = 1
+        headerView.layer.borderColor = UIColor.darkGray.cgColor
 
         let image = UIImageView()
         image.image = UIImage(named: "idea")
@@ -99,10 +95,26 @@ class HomeViewController: UIViewController, ChartViewDelegate {
         headerView.addArrangedSubview(labelFit)
 
         view.addArrangedSubview(headerView)
+
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.darkGray.cgColor
         return view
     }()
-    var tip: TipData?
 
+    private let chartArea: UIView = {
+        let chart = UIView()
+        chart.translatesAutoresizingMaskIntoConstraints = false
+
+        return chart
+    }()
+    lazy var Chart: BarChartView = {
+        let chart = BarChartView()
+        chart.translatesAutoresizingMaskIntoConstraints = false
+
+        return chart
+    }()
+    private var tipString: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -112,14 +124,16 @@ class HomeViewController: UIViewController, ChartViewDelegate {
         view.addSubview(month)
         view.addSubview(weight)
         view.addSubview(graphArea)
-
         view.addSubview(tipView)
+        view.addSubview(chartArea)
+        view.addSubview(Chart)
 
+        setData()
+//        getTip()
         setupLayout()
 
     }
     fileprivate func setupLayout() {
-
 //        Header Configuration
         header.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         header.topAnchor.constraint(equalTo: view.topAnchor, constant: -1).isActive = true
@@ -160,24 +174,23 @@ class HomeViewController: UIViewController, ChartViewDelegate {
         weight.topAnchor.constraint(equalTo: month.bottomAnchor).isActive = true
         weight.leadingAnchor.constraint(equalTo: graphArea.leadingAnchor, constant: 10).isActive = true
 
-        //        Bar Chart config
-        var entries = [BarChartDataEntry]()
+        chartArea.widthAnchor.constraint(equalTo: graphArea.widthAnchor).isActive = true
+        chartArea.topAnchor.constraint(equalTo: weight.bottomAnchor).isActive = true
+        chartArea.bottomAnchor.constraint(equalTo: graphArea.bottomAnchor).isActive = true
+        chartArea.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
-        for x in 0..<100 {
-            entries.append(BarChartDataEntry(x: Double(x), y: Double.random(in: 1...1000)))
-        }
+        //        Chart Config
+        Chart.widthAnchor.constraint(equalTo: chartArea.widthAnchor).isActive = true
+        Chart.heightAnchor.constraint(equalTo: chartArea.heightAnchor).isActive = true
+        guard let font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20) else { return }
+        Chart.noDataFont = font
+        Chart.legend.textColor = .black
 
-        let set = BarChartDataSet()
-        set.colors = ChartColorTemplates.pastel()
-        let data = BarChartData(dataSet: set)
-
-        barChart.frame = CGRect(x: 0, y: 0, width: graphArea.frame.size.width, height: graphArea.frame.size.height)
-        barChart.data = data
-        barChart.center = graphArea.center
-
+//        Adding view to graph Area
         graphArea.addSubview(month)
         graphArea.addSubview(weight)
-        graphArea.addSubview(barChart)
+        graphArea.addSubview(chartArea)
+        chartArea.addSubview(Chart)
 
 //        Tip view config
         tipView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width*0.1).isActive = true
@@ -185,31 +198,56 @@ class HomeViewController: UIViewController, ChartViewDelegate {
         tipView.topAnchor.constraint(equalTo: graphArea.bottomAnchor, constant: 20).isActive = true
 
         let labeltip = UILabel()
+        labeltip.textAlignment = .center
+        labeltip.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 18)
+        labeltip.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
-        labeltip.text = "No Data Found"
+        labeltip.text = self.tipString ?? "Try to run an extra mile"
         tipView.addArrangedSubview(labeltip)
+    }
+    private func getTip() {
+        print("In getTip")
+        guard let url = URL(string: urlString) else { return }
+
+            let task = URLSession.shared.dataTask(with: url) {
+                [weak self] data, _, error in
+
+                let decoder = JSONDecoder()
+
+                if let data = data {
+                    do {
+                        let result = try decoder.decode(GraphAPIResponse.self, from: data)
+                        DispatchQueue.main.async {
+                            self?.tipString = result.result.tip
+                    }
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            task.resume()
     }
 
 }
 
-extension URLSession {
-    func request<T: Codable>(url: URL?,
-                             expecting: T.Type,
-                             completion: @escaping (Result<T, Error>) -> Void) {
-        guard let url = url else {
-            return
-        }
-        let task = dataTask(with: url) {
-            data, _, error in guard let data = data, error == nil else { return }
-
-            do {
-                let result = try JSONDecoder().decode(expecting, from: data)
-                completion(.success(result))
-            } catch {
-                print(error)
-            }
-        }
-        task.resume()
+extension HomeViewController: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print(entry)
     }
 
+    private func setData() {
+
+        var entries = [BarChartDataEntry]()
+        var valueColors = [UIColor]()
+        for x in 0...7 {
+            entries.append(BarChartDataEntry(x: Double(x), y: Double.random(in: 0...20)))
+            valueColors.append(.black)
+        }
+
+        let set = BarChartDataSet(entries: entries, label: "Intake")
+        set.valueColors = valueColors
+        set.colors = ChartColorTemplates.pastel()
+        let data = BarChartData(dataSet: set)
+        Chart.data = data
+    }
 }

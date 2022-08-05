@@ -9,9 +9,9 @@ import Foundation
 
 struct GraphAPIResponse: Codable {
     let status: Int
-    let result: TipData
+    let result: TipResult
 }
-struct TipData: Codable {
+struct TipResult: Codable {
     let id: Int
     let tip: String
 }
