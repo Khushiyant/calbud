@@ -114,7 +114,7 @@ class HomeViewController: UIViewController {
         return chart
     }()
     private var tipString: String?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -206,19 +206,17 @@ class HomeViewController: UIViewController {
         tipView.addArrangedSubview(labeltip)
     }
     private func getTip() {
-        print("In getTip")
         guard let url = URL(string: urlString) else { return }
 
             let task = URLSession.shared.dataTask(with: url) {
                 [weak self] data, _, error in
 
-                let decoder = JSONDecoder()
-
-                if let data = data {
+                if let data = data, error == nil {
                     do {
-                        let result = try decoder.decode(GraphAPIResponse.self, from: data)
+                        let result = try JSONDecoder().decode(GraphAPIResponse.self, from: data)
                         DispatchQueue.main.async {
                             self?.tipString = result.result.tip
+                            print(self?.tipString)
                     }
                     } catch {
                         print(error)

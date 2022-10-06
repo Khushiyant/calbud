@@ -211,6 +211,10 @@ class SigninViewController: UIViewController {
     }
 
 //    Tap Functions
+    private func authenticateUser() -> Bool {
+
+        return true
+    }
     @objc private func didTapSignup() {
         let signupVC = EntryViewController()
         let navVC = UINavigationController(rootViewController: signupVC)
@@ -218,28 +222,31 @@ class SigninViewController: UIViewController {
         present(navVC, animated: true)
     }
     @objc private func didTapSignin() {
+        let authenticated: Bool = authenticateUser()
+        if authenticated {
 
-        let navBarVC = UITabBarController()
+            let navBarVC = UITabBarController()
 
-        let homeVC = HomeViewController()
-        let searchVC = SearchViewController()
-        let profileVC = ProfileViewController()
+            let homeVC = HomeViewController()
+            let searchVC = SearchViewController()
+            let profileVC = ProfileViewController()
 
-        homeVC.title = "Home"
-        searchVC.title = "Track"
-        profileVC.title = "Profile"
+            homeVC.title = "Home"
+            searchVC.title = "Track"
+            profileVC.title = "Profile"
 
-        navBarVC.setViewControllers([homeVC, searchVC, profileVC], animated: false)
+            navBarVC.setViewControllers([homeVC, searchVC, profileVC], animated: false)
 
-        guard let items = navBarVC.tabBar.items else { return }
+            guard let items = navBarVC.tabBar.items else { return }
 
-        for index in 0..<items.count {
-            items[index].image = UIImage(named: tabBarImages[index].image)
-            items[index].selectedImage = UIImage(named: tabBarImages[index].selectedImage)
+            for index in 0..<items.count {
+                items[index].image = UIImage(named: tabBarImages[index].image)
+                items[index].selectedImage = UIImage(named: tabBarImages[index].selectedImage)
+            }
+            navBarVC.modalPresentationStyle = .fullScreen
+            navBarVC.tabBar.backgroundColor = .quaternarySystemFill
+            present(navBarVC, animated: true)
         }
-        navBarVC.modalPresentationStyle = .fullScreen
-        navBarVC.tabBar.backgroundColor = .quaternarySystemFill
-        present(navBarVC, animated: true)
 
     }
     @objc private func googleAuth() {

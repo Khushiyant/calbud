@@ -45,7 +45,6 @@ class SearchViewController: UIViewController {
         return view
 
     }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -68,6 +67,15 @@ class SearchViewController: UIViewController {
 //        dateView config
         dateView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 20).isActive = true
         dateView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+
+//        Search Container
+        searchContainer.backgroundColor = .darkGray
+        searchContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        searchContainer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        searchContainer.topAnchor.constraint(equalTo: dateView.bottomAnchor, constant: 10).isActive = true
+        searchContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+
+//        SearchBar config
 
     }
 }

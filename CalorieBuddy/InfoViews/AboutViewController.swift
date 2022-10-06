@@ -27,6 +27,7 @@ class AboutViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 18)
+//        label.backgroundColor = .systemBlue
         return label
     }()
 
@@ -48,11 +49,16 @@ class AboutViewController: UIViewController {
 
 //      About us content
         aboutContent.topAnchor.constraint(equalTo: aboutUs.bottomAnchor, constant: 20).isActive = true
-        aboutContent.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        aboutContent.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.95).isActive = true
         aboutContent.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         aboutContent.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
-        aboutContent.text = "Hello Everyone"
-
+        do {
+            let path = Bundle.main.path(forResource: "aboutUs", ofType: "txt")
+            let string = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+            aboutContent.text = string
+        } catch {
+            print(error)
+        }
     }
 }
